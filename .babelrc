@@ -1,0 +1,24 @@
+{
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": [
+          "."
+        ],
+        "alias": {
+          "@test": "./src/__tests__",
+          "@config": "./src/config",
+          "@routes": "./core/routes/",
+          "@router": "./router/",
+          "@controllers": "./core/controllers",
+          "@middleware": "./core/middlewares",
+          "@auth": "./core/auth",
+          "@utils": "./src/utils",
+          "@shared": "./src/shared",
+          "@constants": "./src/shared/constants/"
+        }
+      }
+    ]
+  ]
+}

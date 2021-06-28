@@ -1,0 +1,16 @@
+{
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.packageManager": "yarn",
+    "git.autofetch": true,
+    "npm.packageManager": "yarn",
+    "prettier.eslintIntegration": true,
+    "prettier.printWidth": 120,
+    "prettier.tslintIntegration": true,
+    "tslint.autoFixOnSave": true,
+    "tslint.packageManager": "yarn",
+    "xd.globalEditor": false
+}
