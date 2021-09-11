@@ -1,0 +1,33 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.5",
+    "title": "Express Blueprint",
+    "description": "an express application blueprint",
+    "license": {
+      "name": "B3ns44d",
+      "url": "https://github.com/B3ns44d"
+    }
+  },
+  "host": "127.0.0.1:3004",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "API for users in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "auth0": {}
+  },
+  "definitions": {}
+}
