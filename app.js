@@ -26,12 +26,12 @@ if (!isThisDirectoryExist('./logs')) {
 
 app.use(
   logger('combined', {
-    stream: fs.createWriteStream('./logs/app.log', { flags: 'a' }),
+    stream: fs.createWriteStream('./logs/short-report.log', { flags: 'a' }),
   })
 )
 app.use(logger('combined'))
 
-const log = fs.createWriteStream('./logs/app_body.log', { flags: 'a' })
+const log = fs.createWriteStream('./logs/full-report.log', { flags: 'a' })
 
 loggerBody(app, {
   noColors: true,
@@ -52,5 +52,27 @@ app.get('/', (req, res) => {
 app.use('/api', routes)
 
 app.use('/swagger', swaggerConfig(), swaggerUi.serve, swaggerUi.setup())
+
+app.use((req, res, next) => {
+  const err = new Error('Not Found')
+  err['status'] = 404
+  next(err)
+})
+
+app.use((err, req, res, next) => {
+  if (err.name === 'UnauthorizedError') {
+    return res.status(err.status).send({ message: err.message }).end()
+  }
+  return next(err)
+})
+
+app.use((err, req, res, next) => {
+  res.status(err.status || 500)
+  res.json({
+    errors: {
+      message: err.message,
+    },
+  })
+})
 
 module.exports = app
