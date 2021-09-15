@@ -1,6 +1,6 @@
 module.exports = {
   clearMocks: true,
   moduleFileExtensions: ['js', 'jsx'],
-  roots: ['<rootDir>/src'],
+  roots: ['<rootDir>'],
   testEnvironment: 'node',
 }
