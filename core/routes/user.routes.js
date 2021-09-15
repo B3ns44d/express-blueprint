@@ -1,9 +1,9 @@
-const express = require('express')
+import express from 'express'
+import { requiresAuth } from 'express-openid-connect'
 const userRouter = express.Router()
-const { requiresAuth } = require('express-openid-connect')
 
 userRouter.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user))
 })
 
-module.exports = userRouter
+export default userRouter

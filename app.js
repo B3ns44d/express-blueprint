@@ -1,22 +1,28 @@
-const express = require('express'),
-  routes = require('@router'),
-  logger = require('morgan'),
-  app = express(),
-  cors = require('cors'),
-  fs = require('fs'),
-  swaggerUi = require('swagger-ui-express'),
-  swaggerDocument = require('./swagger.json'),
-  helmet = require('helmet'),
-  { auth } = require('express-openid-connect'),
-  authConfig = require('@auth/index')
+import express from 'express'
+import routes from '@router'
+import logger from 'morgan'
+import cors from 'cors'
+import fs from 'fs'
+import swaggerUi from 'swagger-ui-express'
+import swaggerDocument from './swagger.json'
+import helmet from 'helmet'
+import { auth } from 'express-openid-connect'
+import { authConfig } from '@auth/index'
+import { createDirectories, isThisDirectoryExist } from '@utils/index'
+import loggerBody from 'morgan-body'
 
-const loggerBody = require('morgan-body')
+const app = express()
 
 app.use(
   cors({
     origin: '*',
   })
 )
+
+if (!isThisDirectoryExist('./logs')) {
+  createDirectories('./logs', false)
+}
+
 app.use(
   logger('combined', {
     stream: fs.createWriteStream('./logs/app.log', { flags: 'a' }),

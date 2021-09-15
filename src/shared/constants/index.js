@@ -1,14 +1,9 @@
-const ENDPOINTS = {
+export const ENDPOINTS = {
   API: 'api',
   AUTH: 'auth',
   USER: 'user',
   PROFILE: 'profile',
 }
-const ROLES = {
+export const ROLES = {
   isAdmin: 'isAdmin',
-}
-
-module.exports = {
-  ENDPOINTS,
-  ROLES,
 }

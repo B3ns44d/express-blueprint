@@ -1,8 +1,9 @@
-const { secret, baseURL, clientID, issuerBaseURL } = require('@config/index')
-const { ENDPOINTS } = require('@constants/index')
+import { appConfig } from '@config/index'
+import { ENDPOINTS } from '@constants/index'
 const { API, AUTH } = ENDPOINTS
+const { secret, baseURL, clientID, issuerBaseURL } = appConfig
 
-const authConfig = {
+export const authConfig = {
   authRequired: false,
   auth0Logout: true,
   secret,
@@ -14,5 +15,3 @@ const authConfig = {
     postLogoutRedirect: `${API}/${AUTH}/logout`,
   },
 }
-
-module.exports = authConfig

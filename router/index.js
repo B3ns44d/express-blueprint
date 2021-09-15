@@ -1,8 +1,9 @@
-const express = require('express'),
-  routes = express.Router(),
-  authRouter = require('@routes/auth.routes'),
-  userRouter = require('@routes/user.routes'),
-  staffRouter = require('@routes/admin.routes')
+import express from 'express'
+import authRouter from '@routes/auth.routes'
+import userRouter from '@routes/user.routes'
+import staffRouter from '@routes/admin.routes'
+
+const routes = express.Router()
 
 routes.get('/', (req, res) => {
   res.status(200).json({
@@ -14,4 +15,4 @@ routes.use('/auth', authRouter)
 routes.use('/user', userRouter)
 routes.use('/staff', staffRouter)
 
-module.exports = routes
+export default routes

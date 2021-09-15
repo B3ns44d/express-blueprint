@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-module.exports = {
+export const appConfig = {
   databaseURL: process.env.DATABASE_URL,
   secret: process.env.AUTH_SECRET,
   baseURL: process.env.AUTH_BASE_URL,
