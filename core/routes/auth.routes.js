@@ -1,10 +1,8 @@
-import express from 'express'
-import { ENDPOINTS } from '@constants/index'
-const authRouter = express.Router()
+import { Router } from 'express'
+import { login, logout } from '@controllers/auth.controller'
+const authRouter = Router()
 
-const { API, USER, PROFILE } = ENDPOINTS
-
-authRouter.get('/login', (req, res) => res.oidc.login({ returnTo: `${API}/${USER}/${PROFILE}` }))
-authRouter.get('/logout', (req, res) => res.oidc.logout({ returnTo: '/' }))
+authRouter.get('/login', login)
+authRouter.get('/logout', logout)
 
 export default authRouter

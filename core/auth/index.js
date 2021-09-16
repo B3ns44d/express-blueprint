@@ -1,7 +1,8 @@
-import { appConfig } from '@config/index'
-import { ENDPOINTS } from '@constants/index'
-const { API, AUTH } = ENDPOINTS
-const { secret, baseURL, clientID, issuerBaseURL } = appConfig
+import config from '@config'
+import { ENDPOINTS } from '@constants'
+const { api, auth } = ENDPOINTS
+
+const { secret, baseURL, clientID, issuerBaseURL } = config.auth0
 
 export const authConfig = {
   authRequired: false,
@@ -12,6 +13,6 @@ export const authConfig = {
   issuerBaseURL,
   routes: {
     login: false,
-    postLogoutRedirect: `${API}/${AUTH}/logout`,
+    postLogoutRedirect: `${api}/${auth}/logout`,
   },
 }

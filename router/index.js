@@ -5,14 +5,16 @@ import staffRouter from '@routes/admin.routes'
 
 const routes = express.Router()
 
-routes.get('/', (req, res) => {
-  res.status(200).json({
-    message: 'Main app routes endpoint',
+export default () => {
+  routes.get('/', (req, res) => {
+    res.status(200).json({
+      message: 'Main app routes endpoint',
+    })
   })
-})
 
-routes.use('/auth', authRouter)
-routes.use('/user', userRouter)
-routes.use('/staff', staffRouter)
+  routes.use('/auth', authRouter)
+  routes.use('/user', userRouter)
+  routes.use('/staff', staffRouter)
 
-export default routes
+  return routes
+}

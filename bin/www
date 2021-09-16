@@ -1,83 +1,10 @@
 #!/usr/bin/env node
 
-const app = require('../app'),
-  http = require('http'),
-  port = normalizePort(process.env.PORT || '3000'),
-  debug = require('debug')('express-blueprint:server')
-app.set('port', port)
+const express = require('express')
 
-/**
- * Create HTTP server.
- */
+async function startServer() {
+  const app = express()
 
-var server = http.createServer(app)
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-app.listen(port, () => {
-  console.log(
-    `app running on port http://127.0.0.1:${port} \nswagger running on port http://127.0.0.1:${port}/swagger/`
-  )
-  console.log('Press Ctrl+C to quit.')
-})
-
-server.on('error', onError)
-server.on('listening', onListening)
-
-/**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val) {
-  var port = parseInt(val, 10)
-
-  if (isNaN(port)) {
-    // named pipe
-    return val
-  }
-
-  if (port >= 0) {
-    // port number
-    return port
-  }
-
-  return false
+  await require('../src/loaders').default({ expressApp: app })
 }
-
-/**
- * Event listener for HTTP server "error" event.
- */
-
-function onError(error) {
-  if (error.syscall !== 'listen') {
-    throw error
-  }
-
-  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port
-
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges')
-      process.exit(1)
-      break
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use')
-      process.exit(1)
-      break
-    default:
-      throw error
-  }
-}
-
-/**
- * Event listener for HTTP server "listening" event.
- */
-
-function onListening() {
-  var addr = server.address()
-  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port
-  debug('Listening on ' + bind)
-}
+startServer()

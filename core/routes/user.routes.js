@@ -1,6 +1,6 @@
-import express from 'express'
+import { Router } from 'express'
 import { requiresAuth } from 'express-openid-connect'
-const userRouter = express.Router()
+const userRouter = Router()
 
 userRouter.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user))
