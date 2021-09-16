@@ -43,7 +43,7 @@
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.15.6",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.4.2",
+    "babel-jest": "^27.2.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-preset-env": "^1.7.0",
     "eslint": "^7.29.0",
@@ -52,7 +52,7 @@
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-prettier": "^3.4.0",
     "jest": "^27.0.6",
-    "prettier": "^2.3.1",
+    "prettier": "^2.4.1",
     "prisma": "^2.28.0",
     "supertest": "^6.1.3"
   }
