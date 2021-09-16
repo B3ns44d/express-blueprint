@@ -47,18 +47,19 @@ export default () => {
   app.use(express.json())
   app.use(express.urlencoded({ extended: false }))
   app.use(auth(authConfig))
-  app.use(notFound())
-  app.use(Unauthorized())
-  app.use(genericErrorRes())
   app.disable('x-powered-by')
 
   app.get('/', (req, res) => {
     res.status(200).send('Welcome to to this blueprint by B3ns44d, check /swagger')
   })
 
-  app.use(config.api.prefix, routes)
+  app.use(config.api.prefix, routes())
 
   app.use(config.api.docs, swaggerConfig(), swaggerUi.serve, swaggerUi.setup())
+
+  app.use(notFound())
+  app.use(Unauthorized())
+  app.use(genericErrorRes())
 
   app.listen(port, () => {
     consoleLogger.info(`app running on port http://127.0.0.1:${port}`, { category: 'express app' })
