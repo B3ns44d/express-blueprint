@@ -35,7 +35,7 @@
   "devDependencies": {
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.5",
-    "@babel/node": "^7.0.0",
+    "@babel/node": "^7.15.8",
     "@babel/preset-env": "^7.15.6",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^27.2.1",
