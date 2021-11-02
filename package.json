@@ -33,7 +33,7 @@
     "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
-    "@babel/cli": "^7.15.7",
+    "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.15.6",
