@@ -15,7 +15,7 @@
     "check-format": "prettier --check ."
   },
   "dependencies": {
-    "@prisma/client": "^3.5.0",
+    "@prisma/client": "^3.6.0",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
