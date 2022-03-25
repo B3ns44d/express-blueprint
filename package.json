@@ -47,7 +47,7 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^3.4.0",
     "jest": "^27.4.1",
-    "prettier": "^2.4.1",
+    "prettier": "^2.6.1",
     "prisma": "^3.7.0",
     "supertest": "^6.1.3"
   }
